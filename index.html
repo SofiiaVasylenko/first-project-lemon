@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reataurant">
+    <meta name="author" content="Mario and Adrian">
+    <title>Little Lemon restaurant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <script src="https://kit.fontawesome.com/9655790851.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <img src="images/Asset_16.png">
+    </header>
+
+    <nav>
+        <ul class="sidebar">
+            <li onclick="hideSidebar(event)"><a href="javascript:void(0)"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+            <li><a href="#Home" onclick="scrollToSection('Home')">Home</a></li>
+            <li><a href="#About" onclick="scrollToSection('about')">About</a></li>
+            <li><a href="#" onclick="scrollToSection('Menu')">Menu</a></li>
+            <li><a href="#Contacts">Contacts</a></li>
+        </ul>
+        <ul>
+            <li><a href="">Little Lemon</a></li>
+            <li class="hideOnMobile"><a href="#" onclick="scrollToSection('Home')">Home</a></li>
+            <li class="hideOnMobile"><a href="#About" onclick="scrollToSection('about')">About</a></li>
+            <li class="hideOnMobile"><a href="#Menu" onclick="scrollToSection('Menu')">Menu</a></li>
+            <li class="hideOnMobile"><a href="#Contacts" onclick="scrollToSection('Contacts')">Contacts</a></li>
+            <li class="menu-button" onclick="showSidebar()"><a href="javascript:void(0)"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+
+        </ul>
+    </nav>
+
+    <main>
+        <section class="home" id="Home">
+            <div class="content">
+                <h4>Little Lemon restaurant</h4>
+                <p>Some text here</p>
+            </div>
+            <div>
+                <a href="javascript:void(0)" onclick="scrollToSection('Menu')" class="btn">Go to menu</a>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <h1 class="heading"> <span> About </span> Us </h1>
+            <div class="row">
+                <div class="video-container">
+                    <video src="images/video_about.mp4" loop autoplay muted></video>
+                    <h3>The best restaurant</h3>
+                </div>
+                <div class="content">
+                    <h3>Why choose us?</h3>
+                    <p>Based in Chicago, Illinois, Little Lemon is a family-owned 
+                    Mediterranean restaurant, focused on traditional recipes served with 
+                    a modern twist. The chefs draw inspiration from Italian, Greek, and 
+                    Turkish culture and have a menu of 12–15 items that they rotate 
+                    seasonally. The restaurant has a rustic and relaxed atmosphere with 
+                    moderate prices, making it a popular place for a meal any time of 
+                    the day.</p>
+                    <button id="buttonAbout">Learn more</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="Menu">
+            <h4 class="menu">Our<span>Menu</span></h4>
+            <div class="flex-container">
+
+                <div class="flex-item-1">
+                    <img src="images/sandwich_3.png" alt="sandwich">
+                    <h4>sandwich "New-York"</h4>
+                    <p>house-made brioche bun, burger sauce, tomato, mixed salad, 
+                    pickled cucumber, roast beef, crunch onions</p>
+                    <button class="show-more-btn" onclick="showMore(this)">Show more</button> <!--chat gpt-->
+                    <div>
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        <span>250g</span>
+                    </div>
+                </div>
+
+                <div class="flex-item-2" onmouseover="zoomIn(this)" onmouseout="zoomOut(this)">
+                    <img src="images/sandwich_3.png" alt="sandwich">
+                    <h4>sandwich "New-York"</h4>
+                    <p>house-made brioche bun, burger sauce, tomato, mixed salad, 
+                    pickled cucumber, roast beef, crunch onions</p>
+                    <button class="show-more-btn" onclick="showMore(this)">Show more</button>
+                    <div>
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        <span>250g</span>
+                    </div>
+                </div>
+
+                <div class="flex-item-3" onmouseover="zoomIn(this)" onmouseout="zoomOut(this)">
+                    <img src="images/sandwich_3.png" alt="sandwich">
+                    <h4>sandwich "New-York"</h4>
+                    <p>house-made brioche bun, burger sauce, tomato, mixed salad, 
+                    pickled cucumber, roast beef, crunch onions</p>
+                    <button class="show-more-btn" onclick="showMore(this)">Show more</button>
+                    <div>
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        <span>250g</span>
+                    </div>
+                </div>
+
+            </div>
+            <button id="myButton">See more</button>
+        </section>
+
+        <section class="form-section">
+            <div class="container">
+                <h1 class="form-title">Book a table</h1>
+                <form action="#">
+                    <div class="main-user-info">
+                        <div class="user-input-box">
+                            <label for="firstName">First name</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" required/>
+                        </div>
+                        <div class="user-input-box">
+                            <label for="lastName">Last name</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" required/>
+                        </div>
+                        <div class="user-input-box">
+                            <label for="phoneNumber">Phone number</label>
+                            <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter phone number" required/>
+                        </div>
+                        <div class="user-input-box">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" id="quantity" name="quantity" min="1" max="10" placeholder="Enter quantity" required/>
+                        </div>  
+                    </div>
+                    <div class="table-details-box">
+                        <span class="table-title">Table</span>
+                        <div class="table-category">
+                            <input type="radio" name="table" id="indoors" required>
+                            <label for="indoors">Indoors</label>
+                            <input type="radio" name="table" id="outdoors" required>
+                            <label for="outdoors">Outdoors</label>
+                        </div>
+                        <span class="table-title">Data and time</span>
+                        <div class="table-category">
+                            <input type="datetime-local" id="time" name="time" required>
+                        </div>
+                    </div>
+                    <div class="form-submit-btn">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer id="Contacts"> 
+        <div><img src="images/Asset_14.png" id="img"></div>
+        <div>
+            <span class="material-symbols-outlined">call</span>
+            <span>Phone: +123456789</span><br>
+            <span class="material-symbols-outlined">location_on</span>
+            <span>29 Featherstone street New York, NY USA</span><br>
+            <span class="material-symbols-outlined">schedule</span>
+            <span>We are waiting for you from 11:00 to 22:00</span>
+            <p>Copyright Little Lemon 2024</p>
+        </div>
+    </footer>    
+
+    <script src="myScript.js"></script>
+</body>
+</html>

@@ -1,0 +1,724 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh; /*to ensure that the content occupies the entire screen*/
+    font-family: Arial, sans-serif;
+    font-size: 100%;
+}
+
+
+
+/* HEADER */
+.header img {
+    display: block;
+    margin: 0 auto 0 auto;
+    padding: 10px 0;
+    width: 20%;
+}
+
+.header {
+    background-color: #adadad;
+}
+
+
+
+
+/* NAVIGATION */
+nav {
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    width: 100% ; /* to make it span the full width of its container*/
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav li {
+    height: 50px; /* suitable height for the links */
+}
+
+nav a {
+    height: 100%; /* set their height to 100% to make them match the height of the list items */
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+}
+
+nav a:hover {
+    background-color: #f0f0f0;
+}
+
+nav li:first-child {
+    margin-right: auto; /* aling little lemon on the left side */
+    font-weight: bold;
+}
+
+/*This sidebar should always be stacked with the right side covering 
+everything else. we don't want it to influence other website element. 
+So the only logical way to do that is declare these styles */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh; /* the full height of the screen*/
+    width: 250px;
+    z-index: 999; /* to make sure that the sidebar will always be above everything else */
+    background-color: rgba(255, 255, 255, 0.2); /* glass effect*/
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+    display: none; 
+    flex-direction: column; /* to display the links from top to bottom */
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+/* to ensure that the list items and links
+fill out the entire width of the sidebar*/
+.sidebar li {
+    width: 100%;
+}
+.sidebar a {
+    width: 100%;
+}
+.menu-button {
+    display: none;
+}
+
+@media(max-width: 800px){
+    .hideOnMobile{
+        display: none;
+    }
+    .menu-button {
+        display: block;
+    }
+    .header img {
+        width: 45%;
+    } 
+}
+@media(max-width: 400px){
+    .sidebar{
+        width: 100%;
+    }
+    .header img {
+        width: 50%;
+    }  
+}
+
+
+
+
+/* MAIN */
+section {
+    padding: 2rem 9%; /* робить відступ */
+    /*box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);*/
+} 
+
+.btn {
+    display: block;
+    float: left;
+    margin-top: 5rem;
+    border-radius: 2rem;
+    color: aliceblue;
+    background: #636262;
+    padding: 2rem 1.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    text-decoration: none;
+} 
+
+.btn:hover {
+    background: #eba819;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-height: 100vh;
+    background-image: url(images/pexels-two-plates.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.home .content {
+    padding: 10px;
+    max-width: 37rem;
+    float: right;
+    align-self: flex-end;
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    animation: fadeIn 1.8s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+
+.home .content h4 {
+    float: right;
+    font-size: 6rem;
+    color: antiquewhite;
+    text-align: end;
+}
+
+.home .content p {
+    font-size: 3rem;
+    color: rgb(233, 199, 154);
+    padding: 1rem 0;
+    line-height: 1.5;
+    text-align: end;
+}
+
+
+/* about */
+.heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #9e9b9b;
+    padding: 1rem;
+    margin: 2rem 0;
+    background: rgb(12, 11, 0);
+}
+
+.heading span {
+    color: rgba(253, 127, 9, 0.897);
+}
+
+.about .row {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem 0;
+    padding-bottom: 3rem;
+}
+
+.about .row .video-container {
+    flex: 1 1 calc(50% - 1rem); /* Зміна величини */
+    position: relative;
+    height: 60%;
+}
+
+.about .row .video-container video {
+    width: 100%;
+    border: 1.2rem solid #fff;
+    border-radius: 2rem;
+    box-shadow: 0 2rem 1rem rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.about .row .video-container h3 {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    font-size: 2.3rem;
+    background: #fff;
+    width: 100%;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    mix-blend-mode: screen;
+}
+
+.about .row .content {
+    flex: 1 1 calc(50% - 1rem); /* Зміна величини */
+}
+
+.about .row .content h3 {
+    font-size: 25px;
+    font-weight: 600;
+    padding: 0 0 10px 0;
+}
+
+.about .row .content p {
+    font-size: 1.2rem;
+}
+
+#buttonAbout {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    background-color: #e6880c; 
+    color: black;
+    margin: 15px 0 10px 1px;
+    padding: 8px 16px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s; /* анімація (зміна розміру) 0.3 секунди */
+}
+
+#buttonAbout:hover {
+    color: white;
+    transform: scale(1.1); /* Збільшую розмір на 10% при наведенні */
+}
+
+
+@media screen and (max-width: 800px) {
+    .about .row .video-container {
+        flex: 1 0 100%; /* Відео займе всю ширину на екранах <= 800px */
+        position: relative;
+        height: 300px; /* Задала висоту для відео */
+    }
+
+    .about .row .video-container video {
+        width: 100%;
+        border: 1.2rem solid #fff;
+        border-radius: 2rem;
+        box-shadow: 0 2rem 1rem rgba(0, 0, 0, 0.1);
+        height: 100%;
+    }
+
+    .about .row .content {
+        flex: 1 0 100%; /* Текст займе всю ширину на екранах <= 800px */
+    }
+}
+
+
+
+.menu {
+    font-size: 2.5rem;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.menu span {
+    color: #dd9906;
+    margin-left: 0.5rem;
+}
+
+
+
+/*menu gallery */
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    align-items: flex-start;
+    margin-bottom: 10%;
+    gap: 0 7%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.flex-item-1 {
+    background-color: #d1cdcd;
+    padding: 10px;
+    flex: 33.33%;
+    border: 0.1px solid #888884;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    transition: background-color 0.3s ease; /* властивість, яку змінюю і час зміни */
+}
+
+.flex-item-1 img {
+    width: 70%;
+    padding: 5px 0;
+    border-radius: 7px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.flex-item-1 h4 {
+    padding: 0.7rem 0;
+    font-weight: 800;
+    text-decoration: overline;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.flex-item-1 p {
+    text-align: start;
+    padding: 3% 15%;
+    transition: opacity 0.3s ease-in-out; /*chat вниз*/
+    overflow: hidden;
+    max-height: 36px; /* Задала висоту, при якій текст буде обрізаний */
+    transition: max-height 0.3s ease-in-out; /* Плавний перехід */
+}
+
+.show-more-btn {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    padding: 3px;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-size: medium;
+    font-weight: bold;
+    text-transform: lowercase;
+    background-color: #d1cdcd;
+}
+
+.flex-item-1:hover img {
+    transform: scale(1.1);
+}
+
+.flex-item-1:hover {
+    background-color: #acaca4; /* новий колір при наведенні */
+}
+
+.flex-item-2 {
+    background-color: #d1cdcd;
+    padding: 10px;
+    flex: 33.33%;
+    border: 0.1px solid #888884;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    transition: background-color 0.3s ease; /* властивість, яку змінюю і час зміни */
+}
+
+.flex-item-2 img {
+    width: 70%;
+    padding: 5px 0;
+    border-radius: 7px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.flex-item-2 h4 {
+    padding: 0.7rem 0;
+    font-weight: 800;
+    text-decoration: overline;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.flex-item-2 p {
+    text-align: start;
+    padding: 3% 15%;
+    transition: opacity 0.3s ease-in-out;
+    overflow: hidden;
+    max-height: 36px; /* Задала висоту, при якій текст буде обрізаний */
+    transition: max-height 0.3s ease-in-out; /* Плавний перехід */
+}
+
+.flex-item-2:hover img {
+    transform: scale(1.1);
+}
+
+.flex-item-2:hover {
+    background-color: #acaca4; /* новий колір при наведенні */
+}
+
+.flex-item-3 {
+    background-color: #d1cdcd;
+    padding: 10px;
+    flex: 33.33%;
+    border: 0.1px solid #888884;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    transition: background-color 0.3s ease; /* властивість, яку змінюю і час зміни */
+}
+
+.flex-item-3 img {
+    width: 70%;
+    padding: 5px 0;
+    border-radius: 7px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.flex-item-3 h4 {
+    padding: 0.7rem 0;
+    font-weight: 800;
+    text-decoration: overline;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.flex-item-3 p {
+    text-align: start;
+    padding: 3% 15%;
+    transition: opacity 0.3s ease-in-out;
+    overflow: hidden;
+    max-height: 36px; /* Задала висоту, при якій текст буде обрізаний */
+    transition: max-height 0.3s ease-in-out; /* Плавний перехід */
+}
+
+.flex-item-3:hover img {
+    transform: scale(1.1);
+}
+
+.flex-item-3:hover {
+    background-color: #acaca4; /* новий колір при наведенні */
+}
+
+#myButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e6d00c; 
+    color: black;
+    margin: auto;
+    padding: 10px 20px;
+    font-size: 23px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s; /* Анімація (зміна розміру) 0.3 секунди */
+}
+
+#myButton:hover {
+    transform: scale(1.1); /* Збільшує розмір на 10% при наведенні */
+}
+  
+
+
+@media screen and (max-width: 800px){
+    .flex-container {
+        flex-direction: column;
+    }
+    .flex-item-1 {
+        margin: 5% 15%;
+    }
+    .flex-item-2 {
+        margin: 5% 15%;
+    }
+    .flex-item-3 {
+        margin: 5% 15%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .home .content h4 {
+        float: right;
+        font-size: 4rem;
+        text-align: end;
+    }
+    .home .content p {
+        font-size: 2rem;
+    } 
+    .btn {
+        padding: 1.5rem 1rem;
+        font-size: 1.3rem;
+    }
+
+    .heading {
+        font-size: 3rem;
+    }
+}
+
+
+
+/*book form*/
+.form-section {
+    margin: 2rem 9%;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: url(images/restaurant_table.jpg);
+    background-size: cover;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    margin: 0 30px;
+    border-radius: 10px;
+}
+
+.form-title {
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 8px;
+    color: #fff;
+    border-bottom: solid 3px #fff;
+}
+
+.main-user-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0 5px 0;
+}
+
+.user-input-box:nth-child(2n){
+    justify-content: end;
+} 
+
+.user-input-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+
+.user-input-box label {
+    width: 95%;
+    color: white;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 5px 0;
+}
+
+.user-input-box input {
+    height: 40px;
+    width: 95%;
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid grey;
+    padding: 0 10px;
+}
+
+.table-title {
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+    border-bottom: 1px solid white;
+}
+
+.table-category {
+    margin: 10px 0;
+    color: white;
+}
+
+.table-category label {
+    padding: 0 20px 0 15px;
+}
+
+.table-category label,
+.table-category input,
+.form-submit-btn input {
+    cursor: pointer;
+}
+
+.form-submit-btn {
+    margin-top: 40px;
+}
+
+.form-submit-btn input {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    color: rgb(209, 209, 209);
+    background:rgba(196, 96, 3, 0.774);
+}
+
+.form-submit-btn input:hover {
+    background: #e27006;
+    color: rgb(255, 255, 255);
+}
+
+/* Змінити розмір і колір тексту */
+#time {
+    font-size: 16px;
+    color: #333;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+
+@media(max-width: 600px){
+    .container{
+        min-width: 280px;
+    }
+
+    .user-input-box{
+        margin-bottom: 12px;
+        width: 100%;
+    }
+
+    .user-input-box:nth-child(2n){
+        justify-content: space-between;
+    }
+
+    .table-category{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .main-user-info {
+        max-height: 380px;
+        overflow: auto;
+    }
+}
+
+
+
+/* FOOTER */
+footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #adadad;
+    clear: both;
+}
+
+footer div {
+    flex: 50%;
+}
+
+footer div img {
+    padding: 0.8rem 1.5rem;
+    width: 35%;
+}
+
+footer div p {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+}
+
+footer .material-symbols-outlined {
+    padding: 15px 0 2px 0;
+}
+
+@media screen and (max-width: 600px) {
+    footer {
+        justify-content: center;
+    }
+    
+    footer div {
+        flex: 100%;
+    }
+
+    footer div img {
+        margin: auto;
+        padding: auto;
+        width: 65%;
+    }
+    
+    footer div p, span {
+
+        text-align: start;
+    }
+}
